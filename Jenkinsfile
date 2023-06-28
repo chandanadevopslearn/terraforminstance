@@ -2,12 +2,12 @@ pipeline {
     agent any
  
     stages {
-        stage('checkout') {
+        stage('checkout project') {
             steps {
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/chandanadevopslearn/terraforminstance.git']]])
             }
         }
-        stage('init') {
+        stage('init project') {
             steps {
                 sh ('terraform init') 
             }
